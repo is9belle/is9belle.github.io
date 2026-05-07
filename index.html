@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -231,72 +230,9 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
       transition: border-color 0.2s;
     }
     .program-card:hover { border-color: var(--green-mid); }
-
-    .program-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--green);
-      margin-bottom: 0.25rem;
-    }
-
-    .program-desc {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-    }
-
+    .program-name { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--green); margin-bottom: 0.25rem; }
+    .program-desc { font-size: 0.85rem; color: var(--text-dim); }
     .program-icon { font-size: 1.2rem; margin-top: 0.1rem; }
-
-    .examples-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 700px) {
-      .examples-grid { grid-template-columns: 1fr; }
-      .hero-tree { display: none; }
-      nav { padding: 1rem 1.5rem; }
-      section { padding: 4rem 1.5rem; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-    }
-
-    .example-card {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .example-header {
-      padding: 0.75rem 1.25rem;
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .example-header span { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-dim); }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #febc2e; }
-    .dot-g { background: #28c840; }
-
-    pre {
-      padding: 1.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      line-height: 2;
-      color: var(--text-dim);
-      overflow-x: auto;
-    }
-
-    pre .kw { color: var(--green); }
-    pre .str { color: #f4a261; }
-    pre .num { color: #90c4ff; }
-    pre .folder { color: var(--text); }
-    pre .comment { color: #3d5a3d; font-style: italic; }
 
     .syntax-table {
       width: 100%;
@@ -326,6 +262,15 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     .syntax-table td:first-child { color: var(--green-mid); }
     .syntax-table tr:hover td { background: var(--bg2); }
 
+    .syntax-section-header td {
+      background: var(--bg2) !important;
+      color: var(--green) !important;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-top: 1.5rem;
+    }
+
     .install-box {
       background: var(--code-bg);
       border: 1px solid var(--border);
@@ -341,6 +286,43 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     .install-box .line { margin-bottom: 0.75rem; display: flex; align-items: center; }
     .install-box .line:last-child { margin-bottom: 0; }
 
+    .example-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .example-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .example-header span { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-dim); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+
+    pre {
+      padding: 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 2;
+      color: var(--text-dim);
+      overflow-x: auto;
+    }
+
+    pre .kw { color: var(--green); }
+    pre .str { color: #f4a261; }
+    pre .num { color: #90c4ff; }
+    pre .comment { color: #3d5a3d; font-style: italic; }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem 3rem;
@@ -353,8 +335,14 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     }
 
     footer a { color: var(--green); text-decoration: none; }
-
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 3rem; }
+
+    @media (max-width: 700px) {
+      .hero-tree { display: none; }
+      nav { padding: 1rem 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -380,6 +368,7 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <p class="hero-tag">// a filesystem programming language</p>
   <h1>your folders<br/>are <span>code.</span></h1>
@@ -420,10 +409,11 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
 <hr class="divider"/>
 
+<!-- ABOUT -->
 <section id="about">
   <p class="section-label">// philosophy</p>
   <h2>code lives in<br/>the filesystem.</h2>
-  <p style="color:var(--text-dim);max-width:560px;">tree reimagines what source code looks like. Your program is a folder. Subfolders are statements. Files are values. The numbering determines execution order. No text editor required — just your OS.</p>
+  <p style="color:var(--text-dim);max-width:620px;margin-bottom:2rem;">Modern programming keeps getting more complex — more syntax to memorize, more frameworks to learn before you can solve the actual problem. And yet every computer on the planet shares one thing in common. Not a programming language. Not a framework. The filesystem. We asked: what if that was enough? tree turns your directory into code. We didn't simplify programming. We relocated it.</p>
 
   <div class="philosophy-grid">
     <div class="phil-card">
@@ -434,27 +424,38 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
     <div class="phil-card">
       <div class="phil-icon">📄</div>
       <h3>Files are Values</h3>
-      <p>A file named <code style="color:var(--green);font-family:'DM Mono',monospace;">1.i</code> is the variable <em>i</em>. A file named <code style="color:var(--green);font-family:'DM Mono',monospace;">2.42</code> is the literal 42.</p>
+      <p>A file named <code style="color:var(--green);font-family:'DM Mono',monospace;">1.i</code> is the variable <em>i</em>. A file named <code style="color:var(--green);font-family:'DM Mono',monospace;">2.42</code> is the literal 42. A file named <code style="color:var(--green);font-family:'DM Mono',monospace;">3.'hello'</code> is a string.</p>
     </div>
     <div class="phil-card">
       <div class="phil-icon">🔢</div>
       <h3>Numbers are Order</h3>
-      <p>The prefix number on each file or folder determines execution order. <code style="color:var(--green);font-family:'DM Mono',monospace;">1.</code> runs before <code style="color:var(--green);font-family:'DM Mono',monospace;">2.</code> always.</p>
+      <p>The prefix number on each file or folder determines execution order. <code style="color:var(--green);font-family:'DM Mono',monospace;">1.</code> always runs before <code style="color:var(--green);font-family:'DM Mono',monospace;">2.</code> — no ambiguity.</p>
+    </div>
+    <div class="phil-card">
+      <div class="phil-icon">🌐</div>
+      <h3>OS-Friendly</h3>
+      <p>Works on Windows, Mac, and Linux. The interpreter automatically filters out tree-drawing characters so your OS never gets in the way.</p>
+    </div>
+    <div class="phil-card">
+      <div class="phil-icon">📖</div>
+      <h3>Readable by Design</h3>
+      <p>Keywords like <code style="color:var(--green);font-family:'DM Mono',monospace;">lessthanorequal</code> and <code style="color:var(--green);font-family:'DM Mono',monospace;">greaterthan</code> are spelled out fully — no symbols, no shortcuts.</p>
     </div>
     <div class="phil-card">
       <div class="phil-icon">⚡</div>
-      <h3>Python Interpreter</h3>
-      <p>A lightweight Python script walks your directory, parses it with TextX, and executes it immediately.</p>
+      <h3>Minimal Stack</h3>
+      <p>One Python file. One grammar file. One dependency. Point it at a folder and it runs.</p>
     </div>
   </div>
 </section>
 
 <hr class="divider"/>
 
+<!-- PROGRAMS -->
 <section id="programs">
   <p class="section-label">// programs</p>
   <h2>what can tree do?</h2>
-  <p style="color:var(--text-dim);max-width:560px;margin-bottom:0.5rem;">All programs are included in the repo as <code style="color:var(--green);font-family:'DM Mono',monospace;">.tree</code> folders.</p>
+  <p style="color:var(--text-dim);max-width:560px;margin-bottom:0.5rem;">All programs are included in the repo as <code style="color:var(--green);font-family:'DM Mono',monospace;">.tree</code> folders you can run directly.</p>
 
   <div class="programs-grid">
     <div class="program-card">
@@ -468,49 +469,78 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
       <div class="program-icon">⚖️</div>
       <div>
         <div class="program-name">EvenOddCheck.tree</div>
-        <div class="program-desc">Loops 1–10 and prints whether each number is even or odd.</div>
+        <div class="program-desc">Loops 1–10 and prints whether each number is even or odd using mod and if/else.</div>
       </div>
     </div>
     <div class="program-card">
       <div class="program-icon">🎯</div>
       <div>
         <div class="program-name">FizzBuzz.tree</div>
-        <div class="program-desc">Classic FizzBuzz from 1 to 100 using if / elif / else.</div>
+        <div class="program-desc">Classic FizzBuzz from 1 to 100 using if / elif / else and modulo.</div>
       </div>
     </div>
     <div class="program-card">
       <div class="program-icon">✖️</div>
       <div>
         <div class="program-name">MultTable.tree</div>
-        <div class="program-desc">Prints a 10×10 multiplication table using nested for loops.</div>
+        <div class="program-desc">Prints a 10×10 multiplication table using nested for loops and string concat via add.</div>
       </div>
     </div>
     <div class="program-card">
       <div class="program-icon">🔤</div>
       <div>
         <div class="program-name">Concat.tree</div>
-        <div class="program-desc">Demonstrates string concatenation using the add operation.</div>
+        <div class="program-desc">Demonstrates string concatenation — add works on both numbers and strings.</div>
       </div>
     </div>
     <div class="program-card">
       <div class="program-icon">➕</div>
       <div>
         <div class="program-name">SumNums.tree</div>
-        <div class="program-desc">Sums all numbers from 1 to 100 and prints the result.</div>
+        <div class="program-desc">Sums all numbers from 1 to 100 and prints the result (5050).</div>
       </div>
     </div>
     <div class="program-card">
       <div class="program-icon">📥</div>
       <div>
         <div class="program-name">SimpleInput.tree</div>
-        <div class="program-desc">Demonstrates basic variable assignment and printing.</div>
+        <div class="program-desc">Takes user input at runtime and uses it in the program — demonstrates the input keyword.</div>
       </div>
     </div>
+  </div>
+
+  <!-- FizzBuzz example -->
+  <div class="example-card">
+    <div class="example-header">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span>FizzBuzz.tree</span>
+    </div>
+    <pre>
+<span class="comment"># FizzBuzz from 1 to 100</span>
+<span class="kw">1.for\</span>
+  <span class="kw">1.assign\</span>
+    1.i / <span class="num">2.1</span>
+  <span class="kw">2.lessthanorequal\</span>
+    1.i / <span class="num">2.100</span>
+  <span class="kw">3.assign\</span>
+    1.i
+    <span class="kw">2.add\</span>  1.i / <span class="num">2.1</span>
+  <span class="kw">4.do\</span>
+    <span class="kw">1.if\</span>
+      <span class="kw">1.equals\</span>  <span class="num">1.0</span>  <span class="kw">2.mod\</span>  1.i / <span class="num">2.15</span>
+      <span class="kw">2.do\</span>  1.print\  <span class="str">1.'FizzBuzz'</span>
+      <span class="kw">3.elif\</span>  <span class="kw">1.equals\</span>  <span class="num">1.0</span>  <span class="kw">2.mod\</span>  1.i / <span class="num">2.3</span>
+      <span class="kw">4.do\</span>  1.print\  <span class="str">1.'Fizz'</span>
+      <span class="kw">5.elif\</span>  <span class="kw">1.equals\</span>  <span class="num">1.0</span>  <span class="kw">2.mod\</span>  1.i / <span class="num">2.5</span>
+      <span class="kw">6.do\</span>  1.print\  <span class="str">1.'Buzz'</span>
+      <span class="kw">7.else\</span>  1.print\  1.i
+    </pre>
   </div>
 </section>
 
 <hr class="divider"/>
 
+<!-- SYNTAX -->
 <section id="syntax">
   <p class="section-label">// reference</p>
   <h2>language syntax</h2>
@@ -518,27 +548,47 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
   <table class="syntax-table">
     <thead>
-      <tr><th>construct</th><th>folder name</th><th>description</th></tr>
+      <tr><th>construct</th><th>folder / file pattern</th><th>description</th></tr>
     </thead>
     <tbody>
-      <tr><td>assign</td><td>assign\ → 1.var, 2.value</td><td>Assign a value to a variable</td></tr>
-      <tr><td>for</td><td>for\ → 1.assign, 2.condition, 3.assign, 4.do\</td><td>For loop</td></tr>
-      <tr><td>if</td><td>if\ → 1.condition, 2.do\, [elif\], [else\]</td><td>Conditional branch</td></tr>
-      <tr><td>print</td><td>print\ → 1.value</td><td>Print a value or expression</td></tr>
-      <tr><td>add</td><td>add\ → 1.left, 2.right</td><td>Addition or string concat</td></tr>
-      <tr><td>sub</td><td>sub\ → 1.left, 2.right</td><td>Subtraction</td></tr>
-      <tr><td>mul</td><td>mul\ → 1.left, 2.right</td><td>Multiplication</td></tr>
-      <tr><td>div</td><td>div\ → 1.left, 2.right</td><td>Division</td></tr>
-      <tr><td>mod</td><td>mod\ → 1.left, 2.right</td><td>Modulo</td></tr>
+      <tr class="syntax-section-header"><td colspan="3">// control flow</td></tr>
+      <tr><td>for</td><td>for\ → 1.assign, 2.condition, 3.assign, 4.do\</td><td>For loop with init, condition, step, body</td></tr>
+      <tr><td>while</td><td>while\ → 1.condition, 2.do\</td><td>While loop — runs body until condition is false</td></tr>
+      <tr><td>if</td><td>if\ → 1.condition, 2.do\, [elif\], [else\]</td><td>Conditional with optional elif/else chains</td></tr>
+
+      <tr class="syntax-section-header"><td colspan="3">// data</td></tr>
+      <tr><td>assign</td><td>assign\ → 1.varname, 2.value</td><td>Assign a value or expression to a variable</td></tr>
+      <tr><td>print</td><td>print\ → 1.value, [2.value, ...]</td><td>Print one or more values on one line</td></tr>
+      <tr><td>input</td><td>input (file)</td><td>Read a value from the user at runtime</td></tr>
+      <tr><td># comment</td><td># followed by a word</td><td>Comment — ignored by the interpreter</td></tr>
+
+      <tr class="syntax-section-header"><td colspan="3">// expressions</td></tr>
+      <tr><td>add</td><td>add\ → 1.val, 2.val, ...</td><td>Add numbers or concatenate strings — takes 2+ values</td></tr>
+      <tr><td>sub</td><td>sub\ → 1.left, 2.right</td><td>Subtract right from left</td></tr>
+      <tr><td>mul</td><td>mul\ → 1.val, 2.val, ...</td><td>Multiply — takes 2+ values</td></tr>
+      <tr><td>div</td><td>div\ → 1.left, 2.right</td><td>Divide left by right</td></tr>
+      <tr><td>mod</td><td>mod\ → 1.left, 2.right</td><td>Modulo — remainder of left divided by right</td></tr>
+
+      <tr class="syntax-section-header"><td colspan="3">// conditions</td></tr>
       <tr><td>equals</td><td>equals\ → 1.left, 2.right</td><td>Equality check</td></tr>
+      <tr><td>notequals</td><td>notequals\ → 1.left, 2.right</td><td>Inequality check</td></tr>
       <tr><td>lessthan</td><td>lessthan\ → 1.left, 2.right</td><td>Less than</td></tr>
       <tr><td>greaterthan</td><td>greaterthan\ → 1.left, 2.right</td><td>Greater than</td></tr>
+      <tr><td>lessthanorequal</td><td>lessthanorequal\ → 1.left, 2.right</td><td>Less than or equal</td></tr>
+      <tr><td>greaterthanorequal</td><td>greaterthanorequal\ → 1.left, 2.right</td><td>Greater than or equal</td></tr>
+      <tr><td>and / or / not</td><td>and\ / or\ / not\ → values</td><td>Logical operators</td></tr>
+
+      <tr class="syntax-section-header"><td colspan="3">// values</td></tr>
+      <tr><td>variable</td><td>1.i</td><td>Any letter or word — looked up in the environment</td></tr>
+      <tr><td>number</td><td>2.42</td><td>Integer or decimal literal</td></tr>
+      <tr><td>string</td><td>3.'hello'</td><td>String wrapped in single quotes</td></tr>
     </tbody>
   </table>
 </section>
 
 <hr class="divider"/>
 
+<!-- INSTALL -->
 <section id="install">
   <p class="section-label">// getting started</p>
   <h2>run it yourself</h2>
@@ -559,4 +609,3 @@ cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 
 </body>
 </html>
-HTMLEOF
